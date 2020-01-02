@@ -1,0 +1,14 @@
+name: 'Package Cloud Deploy'
+description: 'Get started with Container actions'
+author: 'Radical Zephyr'
+inputs:
+  API_TOKEN:
+    description: 'Package Cloud API Token'
+  REPOSITORY:
+    description: 'Repository Name'
+  FILENAME:
+    description: 'Filename to deploy'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
