@@ -1,14 +1,27 @@
 name: 'Package Cloud Deploy'
 description: 'Get started with Container actions'
 author: 'Radical Zephyr'
+
 inputs:
-  API_TOKEN:
+  api-token:
     description: 'Package Cloud API Token'
-  REPOSITORY:
+    required: true
+  repository:
     description: 'Repository Name'
-  FILENAME:
+    required: true
+  filename:
     description: 'Filename to deploy'
+    required: true
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - '${{ inputs.repository }}'
+    - '${{ inputs.filename }}'
+  env:
+    API_TOKEN: '${{ inputs.api-token }}'
+
+branding:
+  icon: upload-cloud
+  color: purple
